@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar Tonalidad de Color</title>
+    
+    <!-- Enlaces a los archivos CSS de Bootstrap 4 -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <!-- Barra de navegación Bootstrap -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="#">Mi Página "Adrian Reyes Lozano"</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Acerca de</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container mt-5">
+        <h1 class="mb-4">Cambia la Tonalidad de Color</h1>
+        <div id="colorDiv" style="width: 100px; height: 100px; background-color: rgb(0, 0, 0);"></div>
+        <br>
+        <div class="form-group">
+            <label for="red">Rojo:</label>
+            <input type="range" class="form-control-range" id="red" min="0" max="255" value="0">
+        </div>
+        <div class="form-group">
+            <label for="green">Verde:</label>
+            <input type="range" class="form-control-range" id="green" min="0" max="255" value="0">
+        </div>
+        <div class="form-group">
+            <label for="blue">Azul:</label>
+            <input type="range" class="form-control-range" id="blue" min="0" max="255" value="0">
+        </div>
+    </div>
+
+    <footer class="bg-dark text-light text-center py-3">
+        <div class="container">
+            <p>&copy; 2023 Adrian Reyes Lozano. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Enlace al archivo JavaScript de Bootstrap 4 (opcional) -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+
+    <script>
+        const redSlider = document.getElementById('red');
+        const greenSlider = document.getElementById('green');
+        const blueSlider = document.getElementById('blue');
+        const colorDiv = document.getElementById('colorDiv');
+
+        redSlider.addEventListener('input', updateColor);
+        greenSlider.addEventListener('input', updateColor);
+        blueSlider.addEventListener('input', updateColor);
+
+        function updateColor() {
+            const redValue = redSlider.value;
+            const greenValue = greenSlider.value;
+            const blueValue = blueSlider.value;
+            const rgbColor = `rgb(${redValue},${greenValue},${blueValue})`;
+            colorDiv.style.backgroundColor = rgbColor;
+        }
+    </script>
+</body>
+</html>
